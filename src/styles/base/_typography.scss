@@ -1,0 +1,43 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+li,
+ul,
+input,
+button,
+label {
+  font-family: "sonoma", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+  color: $secondary-color;
+
+  &--darkBlue {
+    color: $color-dark-blue;
+  }
+}
+
+.description {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: $secondary-color;
+
+  &__small {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    color: $secondary-color;
+  }
+}
