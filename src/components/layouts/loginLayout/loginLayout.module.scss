@@ -1,0 +1,32 @@
+@use "src/styles/abstracts" as *;
+
+.main {
+  height: 100vh;
+  width: 100%;
+  background-color: $bg-color-primary;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 432px;
+    height: 656px;
+    background-image: url("src/assets/images/blur-celeste.png");
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 432px;
+    height: 656px;
+    background-image: url("src/assets/images/blur-purpple.png");
+  }
+}

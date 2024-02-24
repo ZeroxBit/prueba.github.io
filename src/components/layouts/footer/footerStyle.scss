@@ -1,0 +1,30 @@
+@use "src/styles/utils" as *;
+
+.footer {
+  background-color: #03050f;
+  padding: 30px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+
+  &__section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    @extend .container;
+  }
+
+  &__logo {
+    object-fit: fill;
+  }
+
+  &__text {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+  }
+}

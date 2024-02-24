@@ -1,0 +1,63 @@
+@use "src/styles/abstracts" as *;
+
+.checkbox {
+  &__container {
+    display: flex;
+  }
+
+  &__labelText {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    color: $checkbox-color;
+    margin-left: 15px;
+  }
+
+  &__group {
+    max-width: 30px;
+
+    & input {
+      display: none;
+    }
+
+    & input[type="checkbox"] + label:before {
+      display: inline-block;
+      cursor: pointer;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 20px;
+      letter-spacing: 0.2px;
+    }
+
+    & input[type="checkbox"]:checked + label:before {
+      content: "";
+      background-color: $secondary-color;
+      font-size: 8px;
+      text-align: center;
+      background-size: 70%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-image: url("data:image/svg+xml;utf8,<svg width='12' height='9' viewBox='0 0 12 9' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M4.57143 8L1 4.63462L2 3.69231L4.57143 6.11539L10 1L11 1.94231L4.57143 8Z' fill='white' stroke='white' stroke-width='0.5' stroke-linecap='square' stroke-linejoin='round'/></svg>");
+      border-radius: 5px;
+      vertical-align: bottom;
+      transition: 0.2s;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+    }
+
+    & input[type="checkbox"] + label:before {
+      content: "";
+      border: 1px solid $checkbox-color;
+      border-radius: 5px;
+      vertical-align: bottom;
+      color: transparent;
+      transition: 0.2s;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      font-size: 8px;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@use "src/styles/abstracts" as *;
+
+.select {
+  &__container {
+    outline: none;
+    justify-items: center;
+    height: 56px;
+    border: 1px solid $gray-color-text;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+    border-radius: 8px 0px 0px 8px;
+
+    &--error {
+      border-color: $primary-color;
+    }
+  }
+
+  &__tag {
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    color: $secondary-color;
+    padding-left: 16px;
+    align-items: center;
+    line-height: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    outline: none;
+    padding-right: 16px;
+  }
+
+  &__text-error {
+    color: $primary-color;
+    font-size: 12px;
+    margin-top: 4px;
+
+    &--hidden {
+      visibility: hidden;
+    }
+  }
+}
