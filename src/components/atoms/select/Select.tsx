@@ -1,17 +1,13 @@
 import React, { FC, useEffect, useState } from "react";
 import "./selectStyle.scss";
-
-type SelectOption = {
-  value: string;
-  text: string;
-};
+import { FormOptions } from "@/interfaces/formLogin";
 
 type SelectProps = {
   classContainer?: string;
   classSelect?: string;
   defaultValue?: string;
-  options: SelectOption[];
-  onChange?: (value: SelectOption["value"]) => void;
+  options: FormOptions[];
+  onChange?: (value: FormOptions["value"]) => void;
   error?: boolean;
 };
 
@@ -28,7 +24,7 @@ const Select: FC<SelectProps> = (props) => {
   const handleOnChange = ({ target }: React.ChangeEvent<HTMLSelectElement>) => {
     const { value } = target;
     setSelectValue(value);
-    onChange && onChange(value);
+    onChange && onChange(value as FormOptions["value"]);
   };
 
   const errorClass = error ? "select__container--error" : "";

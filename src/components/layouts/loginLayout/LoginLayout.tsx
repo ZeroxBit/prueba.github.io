@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import styles from "./loginLayout.module.scss";
 import Footer from "../footer/Footer";
+import Header from "@/components/molecules/header/Header";
 
 type Props = {
   children: React.ReactNode | React.ReactNode[];
@@ -9,10 +10,11 @@ type Props = {
 
 const LoginLayout: FC<Props> = ({ children, className }) => {
   return (
-    <main className={`${styles.main} ${className}`}>
-      {children}
+    <>
+      <Header />
+      <main className={`${styles.main} ${className}`}>{children}</main>
       <Footer />
-    </main>
+    </>
   );
 };
 

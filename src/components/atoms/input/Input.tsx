@@ -11,11 +11,13 @@ const Input: FC<InputProps> = (props) => {
     type = "text",
     id,
     label,
+    name,
     error = false,
     textError = "",
     inputOptions = {},
     onFocus,
     onBlur,
+    onChange,
   } = props;
   const [value, setValue] = useState("");
   const [inputFocus, setInputFocus] = useState(false);
@@ -33,6 +35,7 @@ const Input: FC<InputProps> = (props) => {
   const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = target;
     setValue(value);
+    onChange && onChange(target);
   };
 
   const errorClass = error ? "input__container--error" : "";
@@ -50,6 +53,7 @@ const Input: FC<InputProps> = (props) => {
           id={id}
           className={`input__field ${classInput}`}
           value={value}
+          name={name}
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={handleChange}

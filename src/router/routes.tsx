@@ -1,25 +1,17 @@
 import { Login } from "@/pages/login";
 import { Plans } from "@/pages/plans";
 import Summary from "@/pages/summary/Summary";
-import { createBrowserRouter } from "react-router-dom";
+import { Route, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
+import PrivateRoute from "./PrivateRoute";
+import PublicRouter from "./PublicRouter";
 
-export const routers = createBrowserRouter([
-  {
-    path: "/",
-    element: <Login />,
-  },
-  {
-    path: "/planes",
-    element: <Plans />,
-    // loader: rootLoader,
-  },
-  {
-    path: "/resumen",
-    element: <Summary />,
-    // loader: rootLoader,
-  },
-  {
-    path: "*",
-    element: <div>404</div>,
-  },
-]);
+export const routers = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      <Route path="/" element={<PublicRouter component={Login} />} />
+      <Route path="/planes" element={<PrivateRoute component={Plans} />} />
+      <Route path="/resumen" element={<PrivateRoute component={Summary} />} />
+      <Route path="*" element={<div>404</div>} />
+    </>
+  )
+);
