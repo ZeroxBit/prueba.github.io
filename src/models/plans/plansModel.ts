@@ -1,4 +1,4 @@
-export interface Plans {
+export interface PlansAPI {
   list: PlansList[];
 }
 
@@ -7,4 +7,8 @@ export interface PlansList {
   price: number;
   description: string[];
   age: number;
+}
+
+export interface PlansModel extends PlansList {
+  descount: number;
 }

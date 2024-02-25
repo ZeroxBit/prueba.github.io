@@ -2,16 +2,20 @@ import Image from "@/components/atoms/Image/Image";
 import "./cardPlanStyle.scss";
 import { FC } from "react";
 import Buttom from "@/components/atoms/button/Buttom";
+import CardPlanDescount from "./sections/CardPlanDescount";
 
 type CardPlanProps = {
   image: string;
   title: string;
-  price: string;
+  price: number;
   listDescription: string[];
+  onClick: () => void;
+  showDescount?: boolean;
+  descount: number;
 };
 
 const CardPlan: FC<CardPlanProps> = (props) => {
-  const { title, listDescription, image, price } = props;
+  const { title, listDescription, descount, image, price, showDescount, onClick } = props;
 
   return (
     <div className="card-plan">
@@ -22,11 +26,7 @@ const CardPlan: FC<CardPlanProps> = (props) => {
             <Image className="card-plan__header__image" src={image} alt="Shield for me" width="48" height="48" />
           </div>
         </div>
-        <div className="card-plan__header__pricing mt-2">
-          <p className="card-plan__header__pricing__title">Costo del plan</p>
-          <p className="card-plan__header__pricing__descount">10% antes</p>
-          <p className="card-plan__header__pricing__price">${price} al mes</p>
-        </div>
+        <CardPlanDescount descount={descount} showDescount={showDescount} price={price} />
       </div>
       <div className="card-plan__content">
         <div className="card-plan__body">
@@ -39,7 +39,9 @@ const CardPlan: FC<CardPlanProps> = (props) => {
           </ul>
         </div>
         <div className="card-plan__footer">
-          <Buttom className="button button--secondary button--small">Seleccionar Plan</Buttom>
+          <Buttom className="button button--secondary button--small" onClick={onClick}>
+            Seleccionar Plan
+          </Buttom>
         </div>
       </div>
     </div>

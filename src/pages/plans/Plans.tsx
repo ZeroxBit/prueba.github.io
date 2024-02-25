@@ -1,25 +1,20 @@
-import HeaderSteps from "@/components/molecules/headerSteps/HeaderSteps";
-import "./plansStyle.scss";
-import { Link } from "react-router-dom";
 import Card from "@/components/molecules/cards/card/Card";
-import { useContext, useEffect, useState } from "react";
+import HeaderSteps from "@/components/molecules/headerSteps/HeaderSteps";
+import { plansIds } from "@/consts/plans";
 import { Context } from "@/context/RootContex";
-import CardPlan from "@/components/molecules/cards/cardPlan/CardPlan";
-
-const plansIds = {
-  forMe: 1,
-  forOthers: 2,
-};
-
-const imagePlanHouse = "src/assets/images/icon-plan-house.svg";
-const imagePlanHousePlusHospital = "src/assets/images/icon-plan-house-hospital.svg";
-const titlePlanHousePlusHospital = "Plan en Casa y Clínica";
+import { PlansModel } from "@/models/plans/plansModel";
+import { useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import ListOfPlans from "./components/listOfPlans/ListOfPlans";
+import "./plansStyle.scss";
+import { scrollTop } from "@/utils/utils";
 
 const Plans = () => {
-  const [activePlan, setactivePlan] = useState(0);
-  const { handleGetPlans, plans } = useContext(Context);
+  const { handleGetPlans, plans, typePlan, handleSetTypePlan, handleSetSelectPlan, logout } = useContext(Context);
+  const navigate = useNavigate();
 
   useEffect(() => {
+    scrollTop();
     if (!plans.length) {
       handleGetPlans();
     }
@@ -27,10 +22,21 @@ const Plans = () => {
 
   const handelBack = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
+    logout();
+    navigate("/", { replace: true });
   };
 
   const handleActivePlan = (id: number) => {
-    setactivePlan(id);
+    handleSetTypePlan(id);
+  };
+
+  const handleSelectPlan = (plan: PlansModel) => {
+    handleSetSelectPlan(plan);
+    handleGoResument();
+  };
+
+  const handleGoResument = () => {
+    navigate("/resumen");
   };
 
   return (
@@ -53,7 +59,7 @@ const Plans = () => {
               image="src/assets/images/icon-shield-for-me.svg"
               title="Para mi"
               text="Cotiza tu seguro de salud y agrega familiares si así lo deseas."
-              active={activePlan === plansIds.forMe}
+              active={typePlan === plansIds.forMe}
               id={plansIds.forMe}
               onSelect={handleActivePlan}
             />
@@ -61,7 +67,7 @@ const Plans = () => {
               image="src/assets/images/icon-shield-for-others.svg"
               title="Para alguien más"
               text="Realiza una cotización para uno de tus familiares o cualquier persona."
-              active={activePlan === plansIds.forOthers}
+              active={typePlan === plansIds.forOthers}
               id={plansIds.forOthers}
               onSelect={handleActivePlan}
             />
@@ -69,17 +75,7 @@ const Plans = () => {
         </section>
 
         <section className="plans__grid__section-4">
-          <>
-            {plans.map((plan, index) => (
-              <CardPlan
-                key={index}
-                image={titlePlanHousePlusHospital === plan.name ? imagePlanHousePlusHospital : imagePlanHouse}
-                title={plan.name}
-                price={plan.price.toString()}
-                listDescription={plan.description}
-              />
-            ))}
-          </>
+          <ListOfPlans plans={plans} onSelect={handleSelectPlan} show={!!typePlan} showDescount={typePlan === plansIds.forOthers} />
         </section>
       </section>
     </main>

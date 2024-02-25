@@ -1,8 +1,8 @@
 import { USER_KEY } from "@/consts/storageKeys";
-import { PlansList } from "@/models/plans/plansModel";
+import { PlansModel } from "@/models/plans/plansModel";
 import { User } from "@/models/user/userModel";
 import { FormFields } from "@/pages/login/components/form";
-import { getStorageServices } from "@/services/storageServices";
+import { getStorageServices, removeStorageServices } from "@/services/storageServices";
 import React, { FC, createContext, useEffect, useState } from "react";
 import { getPlansByAgeAction } from "./actions/plansActions";
 import { getUserAction } from "./actions/userActions";
@@ -15,9 +15,16 @@ export const Context = createContext({
   userError: "",
   // plans!!
   handleGetPlans: async (): Promise<void> => {},
-  plans: [] as PlansList[],
+  plans: [] as PlansModel[],
   plansLoading: false,
   plansError: "",
+  typePlan: 0,
+  // eslint-disable-next-line
+  handleSetTypePlan: (id: number) => {},
+  selectedPlan: null as PlansModel | null,
+  // eslint-disable-next-line
+  handleSetSelectPlan: (plan: PlansModel) => {},
+  logout: () => {},
 });
 
 type ContextProps = {
@@ -29,9 +36,11 @@ const RootContex: FC<ContextProps> = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [userError, setUserError] = useState("");
 
-  const [plans, setPlans] = useState<PlansList[]>([]);
+  const [plans, setPlans] = useState<PlansModel[]>([]);
   const [plansError, setPlansError] = useState("");
   const [plansLoading, setPlansLoading] = useState(false);
+  const [typePlan, setTypePlan] = useState(0);
+  const [selectedPlan, setSelectedPlan] = useState<PlansModel | null>(null);
 
   useEffect(() => {
     const userStorage = getStorageServices(USER_KEY);
@@ -45,10 +54,9 @@ const RootContex: FC<ContextProps> = ({ children }) => {
   }, []);
 
   const handleGetPlans = async () => {
-    console.log("handleGetPlans", user);
-    // if (!user?.age) return;
+    if (!user?.age) return;
     setPlansLoading(true);
-    await getPlansByAgeAction(33)
+    await getPlansByAgeAction(user?.age)
       .then((plans) => setPlans(plans))
       .catch((error) => setPlansError(error));
   };
@@ -62,6 +70,21 @@ const RootContex: FC<ContextProps> = ({ children }) => {
     setIsLoading(false);
   };
 
+  const handleSetSelectPlan = (plan: PlansModel) => {
+    setSelectedPlan(plan);
+  };
+
+  const handleSetTypePlan = (id: number) => {
+    setTypePlan(() => id);
+  };
+
+  const logout = () => {
+    setUser(null);
+    removeStorageServices(USER_KEY);
+    setSelectedPlan(null);
+    setTypePlan(0);
+  };
+
   const defaultContext = {
     user,
     handleLogin,
@@ -71,6 +94,11 @@ const RootContex: FC<ContextProps> = ({ children }) => {
     plans,
     plansError,
     plansLoading,
+    selectedPlan,
+    handleSetSelectPlan,
+    typePlan,
+    handleSetTypePlan,
+    logout,
   };
 
   return <Context.Provider value={defaultContext}>{children}</Context.Provider>;

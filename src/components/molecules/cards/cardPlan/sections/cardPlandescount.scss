@@ -1,0 +1,31 @@
+@use "src/styles/abstracts" as *;
+
+.card-plan__descount {
+  &__title {
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 16px;
+    letter-spacing: 0.6px;
+    color: $disabled-text-color;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  &__descount {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0.2px;
+    color: $disabled-text-color;
+    text-decoration: line-through;
+    margin-bottom: 5px;
+  }
+
+  &__price {
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 28px;
+    letter-spacing: -0.2px;
+    color: $color-dark-blue;
+  }
+}
