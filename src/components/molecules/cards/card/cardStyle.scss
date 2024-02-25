@@ -1,0 +1,62 @@
+@use "src/styles/abstracts" as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  border-radius: 24px;
+  box-shadow: 0px 0px 10px 0px rgb(174, 172, 243);
+  background-color: white;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 3px solid transparent;
+  max-width: 256px;
+
+  &--active {
+    border: 3px solid $secondary-color;
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 16px 0px rgb(168, 165, 241);
+  }
+
+  .card__header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    .card__header__icon {
+      font-size: 1.5rem;
+      color: $primary-color;
+    }
+  }
+  .card__body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: flex-start;
+
+    &__image {
+      object-fit: contain;
+    }
+
+    &__title {
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 28px;
+      letter-spacing: 0.2px;
+      color: $color-dark-blue;
+      margin: 5px 0;
+    }
+
+    &__text {
+      font-size: 12px;
+      color: $color-dark-blue;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0.2px;
+    }
+  }
+}

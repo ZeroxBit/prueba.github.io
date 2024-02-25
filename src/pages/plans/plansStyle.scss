@@ -1,0 +1,69 @@
+@use "src/styles/abstracts" as *;
+
+.plans {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  & .link {
+    color: $tertiary-color;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0.4px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+
+    & i {
+      margin-right: 8px;
+    }
+  }
+
+  & .title {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0.6px;
+    color: $color-dark-blue;
+    text-align: center;
+  }
+
+  & .description {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.1px;
+    color: $color-dark-blue;
+    text-align: center;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(100px, 1fr));
+    grid-template-rows: auto;
+    gap: 35px;
+    width: 100%;
+    margin: 0 auto;
+
+    &__section-1 {
+      grid-column: 2 / 2;
+      display: grid;
+      grid-row: 2;
+    }
+    &__section-2 {
+      grid-column: 4 / 9;
+      grid-row: 4;
+    }
+    &__section-3 {
+      grid-column: 4 / 9;
+      grid-row: 6;
+
+      &__wrapper-cards {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+    }
+  }
+}

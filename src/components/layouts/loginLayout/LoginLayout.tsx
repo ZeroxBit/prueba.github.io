@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import styles from "./loginLayout.module.scss";
 import Footer from "../footer/Footer";
-import Header from "@/components/molecules/header/Header";
+import Header from "@/components/layouts/header/Header";
 
 type Props = {
   children: React.ReactNode | React.ReactNode[];
