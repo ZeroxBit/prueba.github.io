@@ -45,9 +45,10 @@ const RootContex: FC<ContextProps> = ({ children }) => {
   }, []);
 
   const handleGetPlans = async () => {
-    if (!user?.age) return;
+    console.log("handleGetPlans", user);
+    // if (!user?.age) return;
     setPlansLoading(true);
-    await getPlansByAgeAction(user?.age)
+    await getPlansByAgeAction(33)
       .then((plans) => setPlans(plans))
       .catch((error) => setPlansError(error));
   };

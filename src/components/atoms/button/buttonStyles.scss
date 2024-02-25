@@ -24,4 +24,25 @@
       border-color: $secondary-color;
     }
   }
+
+  &--secondary {
+    background-color: $color-rimac;
+    color: $light-color-text;
+    &:hover {
+      background-color: $light-color-text;
+      color: $secondary-color;
+      border-color: $color-rimac;
+    }
+  }
+
+  &--small {
+    padding: 12px 20px;
+    border-radius: 20px;
+    .button__text {
+      font-size: 18px;
+      line-height: 20px;
+      letter-spacing: 0.4px;
+      font-weight: normal;
+    }
+  }
 }

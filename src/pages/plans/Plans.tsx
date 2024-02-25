@@ -4,11 +4,16 @@ import { Link } from "react-router-dom";
 import Card from "@/components/molecules/cards/card/Card";
 import { useContext, useEffect, useState } from "react";
 import { Context } from "@/context/RootContex";
+import CardPlan from "@/components/molecules/cards/cardPlan/CardPlan";
 
 const plansIds = {
   forMe: 1,
   forOthers: 2,
 };
+
+const imagePlanHouse = "src/assets/images/icon-plan-house.svg";
+const imagePlanHousePlusHospital = "src/assets/images/icon-plan-house-hospital.svg";
+const titlePlanHousePlusHospital = "Plan en Casa y Clínica";
 
 const Plans = () => {
   const [activePlan, setactivePlan] = useState(0);
@@ -61,6 +66,20 @@ const Plans = () => {
               onSelect={handleActivePlan}
             />
           </div>
+        </section>
+
+        <section className="plans__grid__section-4">
+          <>
+            {plans.map((plan, index) => (
+              <CardPlan
+                key={index}
+                image={titlePlanHousePlusHospital === plan.name ? imagePlanHousePlusHospital : imagePlanHouse}
+                title={plan.name}
+                price={plan.price.toString()}
+                listDescription={plan.description}
+              />
+            ))}
+          </>
         </section>
       </section>
     </main>
