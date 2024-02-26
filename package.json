@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/ZeroxBit/prueba.github.io/dist",
+  "homepage": "https://github.com/ZeroxBit/zeroxbit.github.io/dist",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
