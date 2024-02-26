@@ -21,13 +21,13 @@
     right: 0;
     width: 432px;
     height: 656px;
-    background-image: url("/images/blur-celeste.png");
+    background-image: url("https://prueba-github-io-git-main-zeroxbit.vercel.app/images/blur-celeste.png");
     z-index: 1;
 
     @include mobile {
       width: 256px;
       height: 304px;
-      background-image: url("/images/blur-celeste-mobile.png");
+      background-image: url("https://prueba-github-io-git-main-zeroxbit.vercel.app/images/blur-celeste-mobile.png");
       z-index: 1;
     }
   }
@@ -39,13 +39,13 @@
     left: 0;
     width: 432px;
     height: 768px;
-    background-image: url("/images/blur-purpple.png");
+    background-image: url("https://prueba-github-io-git-main-zeroxbit.vercel.app/images/blur-purpple.png");
     z-index: 1;
 
     @include mobile {
       width: 256px;
       height: 304px;
-      background-image: url("/images/blur-purpple-mobile.png");
+      background-image: url("https://prueba-github-io-git-main-zeroxbit.vercel.app/images/blur-purpple-mobile.png");
       z-index: 1;
     }
   }

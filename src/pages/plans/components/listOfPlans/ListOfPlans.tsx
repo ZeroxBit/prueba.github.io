@@ -9,8 +9,8 @@ type ListOfPlansProps = {
   showDescount?: boolean;
 };
 
-const imagePlanHouse = "/images/icon-plan-house.svg";
-const imagePlanHousePlusHospital = "/images/icon-plan-house-hospital.svg";
+const imagePlanHouse = "https://prueba-github-io-git-main-zeroxbit.vercel.app/images/icon-plan-house.svg";
+const imagePlanHousePlusHospital = "https://prueba-github-io-git-main-zeroxbit.vercel.app/images/icon-plan-house-hospital.svg";
 const titlePlanHousePlusHospital = "Plan en Casa y Clínica";
 
 const ListOfPlans: FC<ListOfPlansProps> = ({ show, plans, onSelect, showDescount }) => {
