@@ -7,7 +7,7 @@ const Footer = () => {
       <section className="footer__section">
         <div>
           <Image
-            src="src/assets/images/logo-mobile.svg"
+            src="/images/logo-mobile.svg"
             alt="Logo white"
             width="86"
             height="43"
@@ -16,7 +16,7 @@ const Footer = () => {
               {
                 minWidth: "768px",
 
-                src: "src/assets/images/logo-white.svg",
+                src: "/images/logo-white.svg",
               },
             ]}
           />
