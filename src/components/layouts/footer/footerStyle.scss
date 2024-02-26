@@ -1,3 +1,4 @@
+@use "src/styles/abstracts" as *;
 @use "src/styles/utils" as *;
 
 .footer {
@@ -10,21 +11,39 @@
   position: relative;
   z-index: 1;
 
+  @include mobile {
+    padding: 30px 16px;
+  }
+
   &__section {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex: 1;
     @extend .container;
+
+    @include mobile {
+      flex-direction: column;
+    }
   }
 
   &__logo {
     object-fit: fill;
+    @include mobile {
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
   }
 
   &__text {
     color: #fff;
     font-size: 14px;
     font-weight: 400;
+    @include mobile {
+      padding-top: 30px;
+      border-top: 1px solid $color-dark-blue;
+      width: 100%;
+      text-align: center;
+    }
   }
 }

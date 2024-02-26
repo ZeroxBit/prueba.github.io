@@ -11,8 +11,10 @@ type Props = {
 const LoginLayout: FC<Props> = ({ children, className }) => {
   return (
     <>
-      <Header />
-      <main className={`${styles.main} ${className}`}>{children}</main>
+      <main className={`${styles.main} ${className}`}>
+        <Header />
+        {children}
+      </main>
       <Footer />
     </>
   );

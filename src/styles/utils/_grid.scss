@@ -2,6 +2,10 @@
   max-width: 1280px;
   box-sizing: border-box;
   width: 100%;
+
+  @include mobile {
+    max-width: 100%;
+  }
 }
 
 // 01 7073000

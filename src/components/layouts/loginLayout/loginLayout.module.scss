@@ -1,7 +1,8 @@
 @use "src/styles/abstracts" as *;
+@use "src/styles/utils" as *;
 
 .main {
-  height: 100vh;
+  height: calc(100vh - 100px);
   width: 100%;
   background-color: $bg-color-primary;
   display: flex;
@@ -9,7 +10,10 @@
   justify-content: center;
   align-items: center;
   position: relative;
-
+  @include mobile {
+    justify-content: flex-start;
+    height: calc(100vh - 171px);
+  }
   &::after {
     content: "";
     position: absolute;
@@ -18,6 +22,14 @@
     width: 432px;
     height: 656px;
     background-image: url("src/assets/images/blur-celeste.png");
+    z-index: 1;
+
+    @include mobile {
+      width: 256px;
+      height: 304px;
+      background-image: url("src/assets/images/blur-celeste-mobile.png");
+      z-index: 1;
+    }
   }
 
   &::before {
@@ -28,5 +40,13 @@
     width: 432px;
     height: 768px;
     background-image: url("src/assets/images/blur-purpple.png");
+    z-index: 1;
+
+    @include mobile {
+      width: 256px;
+      height: 304px;
+      background-image: url("src/assets/images/blur-purpple-mobile.png");
+      z-index: 1;
+    }
   }
 }

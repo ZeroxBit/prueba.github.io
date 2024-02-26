@@ -5,7 +5,7 @@ import Header from "../header/Header";
 
 const fallbackPath = "/";
 
-const PlansLayout = () => {
+const PrivateLayout = () => {
   const { user } = useContext(Context);
   if (!user) {
     return <Navigate to={fallbackPath} replace />;
@@ -19,4 +19,4 @@ const PlansLayout = () => {
   );
 };
 
-export default PlansLayout;
+export default PrivateLayout;

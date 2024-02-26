@@ -1,0 +1,60 @@
+@use "src/styles/abstracts" as *;
+@use "src/components/molecules/cards/card/cardStyle.scss" as *;
+
+.card-summary {
+  @extend .card;
+  width: 100%;
+  max-width: none;
+
+  &__header {
+    border-bottom: 1px solid $color-light-gray;
+    margin-bottom: 15px;
+    &__title {
+      font-size: 10px;
+      font-weight: 900;
+      line-height: 16px;
+      letter-spacing: 0.8px;
+      color: $color-dark-blue;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+
+    &__description {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 28px;
+      letter-spacing: -0.2px;
+
+      & i {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &__body {
+    &__col {
+      margin-bottom: 15px;
+      &__title {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0.2px;
+        color: $color-dark-blue;
+        margin-bottom: 8px;
+      }
+
+      &__description {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0.1px;
+        color: $color-dark-blue;
+        margin-bottom: 3px;
+      }
+    }
+  }
+}
