@@ -10,7 +10,7 @@ import { getUserAction } from "./actions/userActions";
 export const Context = createContext({
   user: null as User | null,
   // eslint-disable-next-line
-  handleLogin: async (fields: FormFields): Promise<void> => {},
+  handleLogin: async (_: FormFields): Promise<void> => {},
   isLoading: false,
   userError: "",
   // plans!!
@@ -20,10 +20,10 @@ export const Context = createContext({
   plansError: "",
   typePlan: 0,
   // eslint-disable-next-line
-  handleSetTypePlan: (id: number) => {},
+  handleSetTypePlan: (_: number) => {},
   selectedPlan: null as PlansModel | null,
   // eslint-disable-next-line
-  handleSetSelectPlan: (plan: PlansModel) => {},
+  handleSetSelectPlan: (_: PlansModel) => {},
   logout: () => {},
 });
 
