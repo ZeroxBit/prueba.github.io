@@ -56,7 +56,7 @@ const Plans = () => {
         <section className="plans__grid__section-3">
           <div className="plans__grid__section-3__wrapper-cards ">
             <Card
-              image="src/assets/images/icon-shield-for-me.svg"
+              image="/images/icon-shield-for-me.svg"
               title="Para mi"
               text="Cotiza tu seguro de salud y agrega familiares si así lo deseas."
               active={typePlan === plansIds.forMe}
@@ -64,7 +64,7 @@ const Plans = () => {
               onSelect={handleActivePlan}
             />
             <Card
-              image="src/assets/images/icon-shield-for-others.svg"
+              image="/images/icon-shield-for-others.svg"
               title="Para alguien más"
               text="Realiza una cotización para uno de tus familiares o cualquier persona."
               active={typePlan === plansIds.forOthers}

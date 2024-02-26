@@ -39,7 +39,7 @@ const Login = () => {
       {width > 768 ? (
         <section className={`container login__grid`}>
           <aside className={"login__section-left"}>
-            <Image src="./src/assets/images/imagen_login.png" width="540" alt="Login" className="image" />
+            <Image src="./images/imagen_login.png" width="540" alt="Login" className="image" />
           </aside>
           <section className={"login__section-right"}>
             <h1 className={"login__sub-title-gradient"}>Seguro Salud Flexible</h1>
@@ -57,7 +57,7 @@ const Login = () => {
               <h2 className="title mt-1">Creado para ti y tu familia</h2>
             </section>
             <aside className={"login__grid-mobile__section-right"}>
-              <Image src="./src/assets/images/imagen_login.png" width="540" alt="Login" className="image" />
+              <Image src="./images/imagen_login.png" width="540" alt="Login" className="image" />
             </aside>
           </section>
           <section className="login__grid-mobile__row2">
